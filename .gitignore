@@ -1,0 +1,30 @@
+# Bỏ qua thư mục build
+bin/
+obj/
+
+# Bỏ qua file log và dữ liệu test
+TestResults/
+*.log
+
+# Bỏ qua các thư mục của VSCode, Visual Studio
+.vs/
+.vscode/
+*.user
+*.suo
+*.cache
+*.csproj.user
+
+# Bỏ qua file cài đặt và package
+packages/
+node_modules/
+*.nupkg
+*.snupkg
+
+# Bỏ qua cấu hình môi trường và thông tin nhạy cảm
+.env
+appsettings.json
+appsettings.*.json
+
+# Nếu dùng Selenium với ChromeDriver, bỏ qua file này nếu không muốn commit
+chromedriver.exe
+chromedriver.log
