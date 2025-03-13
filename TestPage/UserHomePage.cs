@@ -16,6 +16,7 @@ namespace SeleniumTestPNJstore.TestPage
         private By userIconPath = By.XPath("//*[@id=\"app\"]/div/div/nav/div[3]/div[2]/img");
         private By buttonNavigateLoginPath = By.XPath("//*[@id=\"app\"]/div/div/nav/div[3]/div[2]/div/button");
         private By buttonNavigateRegisterPath = By.XPath("//*[@id=\"app\"]/div/div/div/p[2]/a");
+        private By buttonNavigateShoppingCartPath = By.XPath("//*[@id=\"app\"]/div/div/nav/div[3]/div[1]/a");
         public UserHomePage(IWebDriver driver)
         {
             browsDrive = driver;
@@ -26,7 +27,7 @@ namespace SeleniumTestPNJstore.TestPage
             browsDrive.Navigate().GoToUrl(urlHomePage);
             browsDrive.Manage().Window.Maximize();
         }
-        public void HoverToUserIcon()
+        void HoverToUserIcon()
         {
             IWebElement userIcon = browsDrive.FindElement(userIconPath);
             Actions actions = new Actions(browsDrive);
@@ -35,14 +36,26 @@ namespace SeleniumTestPNJstore.TestPage
             Thread.Sleep(200);
         }
 
-        public void ClickNavigateLoginButton()
+        void ClickNavigateLoginButton()
         {
             IWebElement navigateLoginButton = browsDrive.FindElement(buttonNavigateLoginPath);
             navigateLoginButton.Click();
 
             Thread.Sleep(300);
         }
+        void ClickNavigateShoppingCartButton()
+        {
+            IWebElement navigateShoppingCartButton = browsDrive.FindElement(buttonNavigateShoppingCartPath);
+            navigateShoppingCartButton.Click();
+        }
 
+
+        public void NavigateToShoppingCartPage()
+        {
+            Thread.Sleep(1000); //Delay mot chut de trang web load
+
+            ClickNavigateShoppingCartButton();
+        }
         public void NavigateToLoginPage()
         {
             Thread.Sleep(500);

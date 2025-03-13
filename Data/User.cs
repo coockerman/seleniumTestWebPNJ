@@ -12,7 +12,7 @@ namespace SeleniumTestPNJstore.Data
         public static string Password = "123456";
 
         public static string AdminUserName = "nghai1827@gmail.com";
-        public static string AdminPassword = "123456";
+        public static string AdminPassword = "123456aB";
 
         public static string FullNameRegister = "Nguyen Van A";
         public static string EmailRegister = "nghaiTest44@gmail.com";
