@@ -12,29 +12,37 @@ using OpenQA.Selenium.Support.UI;
 using OpenQA.Selenium.Interactions;
 using NUnit.Framework;
 [TestFixture]
-public class DM010Test {
-  private IWebDriver driver;
-  public IDictionary<string, object> vars {get; private set;}
-  private IJavaScriptExecutor js;
-  [SetUp]
-  public void SetUp() {
-    driver = new ChromeDriver();
-    js = (IJavaScriptExecutor)driver;
-    vars = new Dictionary<string, object>();
-  }
-  [TearDown]
-  protected void TearDown() {
-    driver.Quit();
+public class DM010Test
+{
+    private IWebDriver driver;
+    public IDictionary<string, object> vars { get; private set; }
+    private IJavaScriptExecutor js;
+    [SetUp]
+    public void SetUp()
+    {
+        driver = new ChromeDriver();
+        js = (IJavaScriptExecutor)driver;
+        vars = new Dictionary<string, object>();
+    }
+    [TearDown]
+    protected void TearDown()
+    {
+        driver.Quit();
         driver.Dispose();
     }
-  [Test]
-  public void dM010() {
-    driver.Navigate().GoToUrl("http://localhost:5173/user-home");
-    driver.Manage().Window.Size = new System.Drawing.Size(1552, 832);
-    driver.FindElement(By.CssSelector(".product-list:nth-child(2) .product:nth-child(3) .product-image")).Click();
-    js.ExecuteScript("window.scrollTo(0,0)");
-    driver.FindElement(By.CssSelector(".pagination > span:nth-child(3)")).Click();
-    driver.FindElement(By.CssSelector("span:nth-child(4)")).Click();
-    driver.FindElement(By.CssSelector("span:nth-child(5)")).Click();
-  }
+    [Test]
+    public void dM010()
+    {
+        driver.Navigate().GoToUrl("http://localhost:5173/user-home");
+        driver.Manage().Window.Maximize();
+        driver.FindElement(By.CssSelector(".product-list:nth-child(2) .product:nth-child(3) .product-image")).Click();
+        Thread.Sleep(2000);
+        js.ExecuteScript("window.scrollTo(0,0)");
+        driver.FindElement(By.CssSelector(".pagination > span:nth-child(3)")).Click();
+        Thread.Sleep(2000);
+        driver.FindElement(By.CssSelector("span:nth-child(4)")).Click();
+        Thread.Sleep(2000);
+        driver.FindElement(By.CssSelector("span:nth-child(5)")).Click();
+        Thread.Sleep(2000);
+    }
 }

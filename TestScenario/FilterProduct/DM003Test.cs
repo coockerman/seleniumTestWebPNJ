@@ -35,14 +35,28 @@ public class DM003Test
     public void dM003()
     {
         driver.Navigate().GoToUrl("http://localhost:5173/user-home");
-        driver.Manage().Window.Size = new System.Drawing.Size(1552, 832);
+        driver.Manage().Window.Maximize();
         driver.FindElement(By.CssSelector(".product-list:nth-child(2) .product:nth-child(1) .product-image")).Click();
+        Thread.Sleep(3000);
+
         js.ExecuteScript("window.scrollTo(0,0)");
         driver.FindElement(By.CssSelector(".filter-section:nth-child(3) .filter-btn:nth-child(1)")).Click();
+        Thread.Sleep(3000);
+
         driver.FindElement(By.CssSelector(".search-btn")).Click();
+        Thread.Sleep(3000);
+
         driver.FindElement(By.CssSelector(".filter-section:nth-child(3) .filter-btn:nth-child(2)")).Click();
+        Thread.Sleep(3000);
+
         driver.FindElement(By.CssSelector(".search-btn")).Click();
+        Thread.Sleep(3000);
+
         driver.FindElement(By.CssSelector(".filter-section:nth-child(3) .filter-btn:nth-child(3)")).Click();
+        Thread.Sleep(3000);
+
         driver.FindElement(By.CssSelector(".search-btn")).Click();
+        Thread.Sleep(3000);
+
     }
 }

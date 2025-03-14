@@ -12,38 +12,51 @@ using OpenQA.Selenium.Support.UI;
 using OpenQA.Selenium.Interactions;
 using NUnit.Framework;
 [TestFixture]
-public class DM005Test {
-  private IWebDriver driver;
-  public IDictionary<string, object> vars {get; private set;}
-  private IJavaScriptExecutor js;
-  [SetUp]
-  public void SetUp() {
-    driver = new ChromeDriver();
-    js = (IJavaScriptExecutor)driver;
-    vars = new Dictionary<string, object>();
-  }
-  [TearDown]
-  protected void TearDown() {
-    driver.Quit();
+public class DM005Test
+{
+    private IWebDriver driver;
+    public IDictionary<string, object> vars { get; private set; }
+    private IJavaScriptExecutor js;
+    [SetUp]
+    public void SetUp()
+    {
+        driver = new ChromeDriver();
+        js = (IJavaScriptExecutor)driver;
+        vars = new Dictionary<string, object>();
+    }
+    [TearDown]
+    protected void TearDown()
+    {
+        driver.Quit();
         driver.Dispose();
     }
-  [Test]
-  public void dM005() {
-    driver.Navigate().GoToUrl("http://localhost:5173/user-home");
-    driver.Manage().Window.Size = new System.Drawing.Size(1552, 832);
-    driver.FindElement(By.CssSelector(".product-list:nth-child(2) .product:nth-child(3) .product-image")).Click();
+    [Test]
+    public void dM005()
     {
-      var element = driver.FindElement(By.CssSelector(".pagination > button:nth-child(2)"));
-      Actions builder = new Actions(driver);
-      builder.MoveToElement(element).Perform();
+        driver.Navigate().GoToUrl("http://localhost:5173/user-home");
+        driver.Manage().Window.Maximize();
+        driver.FindElement(By.CssSelector(".product-list:nth-child(2) .product:nth-child(3) .product-image")).Click();
+        Thread.Sleep(2000);
+        {
+            var element = driver.FindElement(By.CssSelector(".pagination > button:nth-child(2)"));
+            Actions builder = new Actions(driver);
+            builder.MoveToElement(element).Perform();
+        }
+        driver.FindElement(By.CssSelector(".filter-section:nth-child(4) .filter-btn:nth-child(1)")).Click();
+        Thread.Sleep(2000);
+        driver.FindElement(By.CssSelector(".search-btn")).Click();
+        Thread.Sleep(2000);
+        driver.FindElement(By.CssSelector(".filter-section:nth-child(4) .filter-btn:nth-child(2)")).Click();
+        Thread.Sleep(2000);
+        driver.FindElement(By.CssSelector(".search-btn")).Click();
+        Thread.Sleep(2000);
+        driver.FindElement(By.CssSelector(".filter-section:nth-child(4) .filter-btn:nth-child(3)")).Click();
+        Thread.Sleep(2000);
+        driver.FindElement(By.CssSelector(".search-btn")).Click();
+        Thread.Sleep(2000);
+        driver.FindElement(By.CssSelector(".filter-section:nth-child(4) .filter-btn:nth-child(4)")).Click();
+        Thread.Sleep(2000);
+        driver.FindElement(By.CssSelector(".search-btn")).Click();
+        Thread.Sleep(2000);
     }
-    driver.FindElement(By.CssSelector(".filter-section:nth-child(4) .filter-btn:nth-child(1)")).Click();
-    driver.FindElement(By.CssSelector(".search-btn")).Click();
-    driver.FindElement(By.CssSelector(".filter-section:nth-child(4) .filter-btn:nth-child(2)")).Click();
-    driver.FindElement(By.CssSelector(".search-btn")).Click();
-    driver.FindElement(By.CssSelector(".filter-section:nth-child(4) .filter-btn:nth-child(3)")).Click();
-    driver.FindElement(By.CssSelector(".search-btn")).Click();
-    driver.FindElement(By.CssSelector(".filter-section:nth-child(4) .filter-btn:nth-child(4)")).Click();
-    driver.FindElement(By.CssSelector(".search-btn")).Click();
-  }
 }

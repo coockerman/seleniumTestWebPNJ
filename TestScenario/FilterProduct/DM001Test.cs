@@ -12,200 +12,207 @@ using OpenQA.Selenium.Support.UI;
 using OpenQA.Selenium.Interactions;
 using NUnit.Framework;
 [TestFixture]
-public class DM001Test {
-  private IWebDriver driver;
-  public IDictionary<string, object> vars {get; private set;}
-  private IJavaScriptExecutor js;
-  [SetUp]
-  public void SetUp() {
-    driver = new ChromeDriver();
+public class DM001Test
+{
+    private IWebDriver driver;
+    public IDictionary<string, object> vars { get; private set; }
+    private IJavaScriptExecutor js;
+    [SetUp]
+    public void SetUp()
+    {
+        driver = new ChromeDriver();
 
-    js = (IJavaScriptExecutor)driver;
-    vars = new Dictionary<string, object>();
-  }
-  [TearDown]
-  protected void TearDown() {
-    driver.Quit();
+        js = (IJavaScriptExecutor)driver;
+        vars = new Dictionary<string, object>();
+    }
+    [TearDown]
+    protected void TearDown()
+    {
+        driver.Quit();
         driver.Dispose();
-  }
-  [Test]
-  public void dM001() {
-    driver.Navigate().GoToUrl("http://localhost:5173/user-home");
-    driver.Manage().Window.Size = new System.Drawing.Size(1552, 832);
-    driver.FindElement(By.CssSelector(".explore-btn")).Click();
-    driver.FindElement(By.CssSelector(".product-list:nth-child(2) .product:nth-child(1) .product-image")).Click();
-    js.ExecuteScript("window.scrollTo(0,0)");
-    {
-      var element = driver.FindElement(By.CssSelector(".price-slider"));
-      Actions builder = new Actions(driver);
-      builder.MoveToElement(element).ClickAndHold().Perform();
     }
+    [Test]
+    public void dM001()
     {
-      var element = driver.FindElement(By.CssSelector(".price-slider"));
-      Actions builder = new Actions(driver);
-      builder.MoveToElement(element).Perform();
+        driver.Navigate().GoToUrl("http://localhost:5173/user-home");
+        driver.Manage().Window.Maximize();
+        driver.FindElement(By.CssSelector(".explore-btn")).Click();
+        driver.FindElement(By.CssSelector(".product-list:nth-child(2) .product:nth-child(1) .product-image")).Click();
+        Thread.Sleep(3000);
+        js.ExecuteScript("window.scrollTo(0,0)");
+        {
+            var element = driver.FindElement(By.CssSelector(".price-slider"));
+            Actions builder = new Actions(driver);
+            builder.MoveToElement(element).ClickAndHold().Perform();
+        }
+        {
+            var element = driver.FindElement(By.CssSelector(".price-slider"));
+            Actions builder = new Actions(driver);
+            builder.MoveToElement(element).Perform();
+        }
+        {
+            var element = driver.FindElement(By.CssSelector(".price-slider"));
+            Actions builder = new Actions(driver);
+            builder.MoveToElement(element).Release().Perform();
+        }
+        driver.FindElement(By.CssSelector(".price-slider")).SendKeys("5000000");
+        driver.FindElement(By.CssSelector(".price-slider")).Click();
+        Thread.Sleep(3000);
+        {
+            var element = driver.FindElement(By.CssSelector(".price-slider"));
+            Actions builder = new Actions(driver);
+            builder.MoveToElement(element).ClickAndHold().Perform();
+        }
+        {
+            var element = driver.FindElement(By.CssSelector(".price-slider"));
+            Actions builder = new Actions(driver);
+            builder.MoveToElement(element).Perform();
+        }
+        {
+            var element = driver.FindElement(By.CssSelector(".price-slider"));
+            Actions builder = new Actions(driver);
+            builder.MoveToElement(element).Release().Perform();
+        }
+        driver.FindElement(By.CssSelector(".price-slider")).SendKeys("7000000");
+        driver.FindElement(By.CssSelector(".price-slider")).Click();
+        {
+            var element = driver.FindElement(By.CssSelector(".price-slider"));
+            Actions builder = new Actions(driver);
+            builder.MoveToElement(element).ClickAndHold().Perform();
+        }
+        {
+            var element = driver.FindElement(By.CssSelector(".price-slider"));
+            Actions builder = new Actions(driver);
+            builder.MoveToElement(element).Perform();
+        }
+        {
+            var element = driver.FindElement(By.CssSelector(".price-slider"));
+            Actions builder = new Actions(driver);
+            builder.MoveToElement(element).Release().Perform();
+        }
+        driver.FindElement(By.CssSelector(".price-slider")).SendKeys("11000000");
+        driver.FindElement(By.CssSelector(".price-slider")).Click();
+        {
+            var element = driver.FindElement(By.CssSelector(".price-slider"));
+            Actions builder = new Actions(driver);
+            builder.MoveToElement(element).ClickAndHold().Perform();
+        }
+        {
+            var element = driver.FindElement(By.CssSelector(".price-slider"));
+            Actions builder = new Actions(driver);
+            builder.MoveToElement(element).Perform();
+        }
+        {
+            var element = driver.FindElement(By.CssSelector(".price-slider"));
+            Actions builder = new Actions(driver);
+            builder.MoveToElement(element).Release().Perform();
+        }
+        driver.FindElement(By.CssSelector(".price-slider")).SendKeys("15000000");
+        driver.FindElement(By.CssSelector(".price-slider")).Click();
+        {
+            var element = driver.FindElement(By.CssSelector(".price-slider"));
+            Actions builder = new Actions(driver);
+            builder.MoveToElement(element).ClickAndHold().Perform();
+        }
+        {
+            var element = driver.FindElement(By.CssSelector(".price-slider"));
+            Actions builder = new Actions(driver);
+            builder.MoveToElement(element).Perform();
+        }
+        {
+            var element = driver.FindElement(By.CssSelector(".price-slider"));
+            Actions builder = new Actions(driver);
+            builder.MoveToElement(element).Release().Perform();
+        }
+        driver.FindElement(By.CssSelector(".price-slider")).SendKeys("17000000");
+        driver.FindElement(By.CssSelector(".price-slider")).Click();
+        {
+            var element = driver.FindElement(By.CssSelector(".price-slider"));
+            Actions builder = new Actions(driver);
+            builder.MoveToElement(element).ClickAndHold().Perform();
+        }
+        {
+            var element = driver.FindElement(By.CssSelector(".price-slider"));
+            Actions builder = new Actions(driver);
+            builder.MoveToElement(element).Perform();
+        }
+        {
+            var element = driver.FindElement(By.CssSelector(".price-slider"));
+            Actions builder = new Actions(driver);
+            builder.MoveToElement(element).Release().Perform();
+        }
+        driver.FindElement(By.CssSelector(".price-slider")).SendKeys("20000000");
+        driver.FindElement(By.CssSelector(".price-slider")).Click();
+        {
+            var element = driver.FindElement(By.CssSelector(".price-slider"));
+            Actions builder = new Actions(driver);
+            builder.MoveToElement(element).ClickAndHold().Perform();
+        }
+        {
+            var element = driver.FindElement(By.CssSelector(".price-slider"));
+            Actions builder = new Actions(driver);
+            builder.MoveToElement(element).Perform();
+        }
+        {
+            var element = driver.FindElement(By.CssSelector(".price-slider"));
+            Actions builder = new Actions(driver);
+            builder.MoveToElement(element).Release().Perform();
+        }
+        driver.FindElement(By.CssSelector(".price-slider")).SendKeys("24000000");
+        driver.FindElement(By.CssSelector(".price-slider")).Click();
+        Thread.Sleep(3000);
+        {
+            var element = driver.FindElement(By.CssSelector(".price-slider"));
+            Actions builder = new Actions(driver);
+            builder.MoveToElement(element).ClickAndHold().Perform();
+        }
+        {
+            var element = driver.FindElement(By.CssSelector(".price-slider"));
+            Actions builder = new Actions(driver);
+            builder.MoveToElement(element).Perform();
+        }
+        {
+            var element = driver.FindElement(By.CssSelector(".price-slider"));
+            Actions builder = new Actions(driver);
+            builder.MoveToElement(element).Release().Perform();
+        }
+        driver.FindElement(By.CssSelector(".price-slider")).SendKeys("32000000");
+        driver.FindElement(By.CssSelector(".price-slider")).Click();
+        {
+            var element = driver.FindElement(By.CssSelector(".price-slider"));
+            Actions builder = new Actions(driver);
+            builder.MoveToElement(element).ClickAndHold().Perform();
+        }
+        {
+            var element = driver.FindElement(By.CssSelector(".price-slider"));
+            Actions builder = new Actions(driver);
+            builder.MoveToElement(element).Perform();
+        }
+        {
+            var element = driver.FindElement(By.CssSelector(".price-slider"));
+            Actions builder = new Actions(driver);
+            builder.MoveToElement(element).Release().Perform();
+        }
+        driver.FindElement(By.CssSelector(".price-slider")).SendKeys("37000000");
+        driver.FindElement(By.CssSelector(".price-slider")).Click();
+        {
+            var element = driver.FindElement(By.CssSelector(".price-slider"));
+            Actions builder = new Actions(driver);
+            builder.MoveToElement(element).ClickAndHold().Perform();
+        }
+        {
+            var element = driver.FindElement(By.CssSelector(".price-slider"));
+            Actions builder = new Actions(driver);
+            builder.MoveToElement(element).Perform();
+        }
+        {
+            var element = driver.FindElement(By.CssSelector(".price-slider"));
+            Actions builder = new Actions(driver);
+            builder.MoveToElement(element).Release().Perform();
+        }
+        driver.FindElement(By.CssSelector(".price-slider")).SendKeys("21000000");
+        driver.FindElement(By.CssSelector(".price-slider")).Click();
+        driver.FindElement(By.CssSelector(".price-slider")).SendKeys("50000000");
+        driver.FindElement(By.CssSelector(".pageMain")).Click();
     }
-    {
-      var element = driver.FindElement(By.CssSelector(".price-slider"));
-      Actions builder = new Actions(driver);
-      builder.MoveToElement(element).Release().Perform();
-    }
-    driver.FindElement(By.CssSelector(".price-slider")).SendKeys("5000000");
-    driver.FindElement(By.CssSelector(".price-slider")).Click();
-    {
-      var element = driver.FindElement(By.CssSelector(".price-slider"));
-      Actions builder = new Actions(driver);
-      builder.MoveToElement(element).ClickAndHold().Perform();
-    }
-    {
-      var element = driver.FindElement(By.CssSelector(".price-slider"));
-      Actions builder = new Actions(driver);
-      builder.MoveToElement(element).Perform();
-    }
-    {
-      var element = driver.FindElement(By.CssSelector(".price-slider"));
-      Actions builder = new Actions(driver);
-      builder.MoveToElement(element).Release().Perform();
-    }
-    driver.FindElement(By.CssSelector(".price-slider")).SendKeys("7000000");
-    driver.FindElement(By.CssSelector(".price-slider")).Click();
-    {
-      var element = driver.FindElement(By.CssSelector(".price-slider"));
-      Actions builder = new Actions(driver);
-      builder.MoveToElement(element).ClickAndHold().Perform();
-    }
-    {
-      var element = driver.FindElement(By.CssSelector(".price-slider"));
-      Actions builder = new Actions(driver);
-      builder.MoveToElement(element).Perform();
-    }
-    {
-      var element = driver.FindElement(By.CssSelector(".price-slider"));
-      Actions builder = new Actions(driver);
-      builder.MoveToElement(element).Release().Perform();
-    }
-    driver.FindElement(By.CssSelector(".price-slider")).SendKeys("11000000");
-    driver.FindElement(By.CssSelector(".price-slider")).Click();
-    {
-      var element = driver.FindElement(By.CssSelector(".price-slider"));
-      Actions builder = new Actions(driver);
-      builder.MoveToElement(element).ClickAndHold().Perform();
-    }
-    {
-      var element = driver.FindElement(By.CssSelector(".price-slider"));
-      Actions builder = new Actions(driver);
-      builder.MoveToElement(element).Perform();
-    }
-    {
-      var element = driver.FindElement(By.CssSelector(".price-slider"));
-      Actions builder = new Actions(driver);
-      builder.MoveToElement(element).Release().Perform();
-    }
-    driver.FindElement(By.CssSelector(".price-slider")).SendKeys("15000000");
-    driver.FindElement(By.CssSelector(".price-slider")).Click();
-    {
-      var element = driver.FindElement(By.CssSelector(".price-slider"));
-      Actions builder = new Actions(driver);
-      builder.MoveToElement(element).ClickAndHold().Perform();
-    }
-    {
-      var element = driver.FindElement(By.CssSelector(".price-slider"));
-      Actions builder = new Actions(driver);
-      builder.MoveToElement(element).Perform();
-    }
-    {
-      var element = driver.FindElement(By.CssSelector(".price-slider"));
-      Actions builder = new Actions(driver);
-      builder.MoveToElement(element).Release().Perform();
-    }
-    driver.FindElement(By.CssSelector(".price-slider")).SendKeys("17000000");
-    driver.FindElement(By.CssSelector(".price-slider")).Click();
-    {
-      var element = driver.FindElement(By.CssSelector(".price-slider"));
-      Actions builder = new Actions(driver);
-      builder.MoveToElement(element).ClickAndHold().Perform();
-    }
-    {
-      var element = driver.FindElement(By.CssSelector(".price-slider"));
-      Actions builder = new Actions(driver);
-      builder.MoveToElement(element).Perform();
-    }
-    {
-      var element = driver.FindElement(By.CssSelector(".price-slider"));
-      Actions builder = new Actions(driver);
-      builder.MoveToElement(element).Release().Perform();
-    }
-    driver.FindElement(By.CssSelector(".price-slider")).SendKeys("20000000");
-    driver.FindElement(By.CssSelector(".price-slider")).Click();
-    {
-      var element = driver.FindElement(By.CssSelector(".price-slider"));
-      Actions builder = new Actions(driver);
-      builder.MoveToElement(element).ClickAndHold().Perform();
-    }
-    {
-      var element = driver.FindElement(By.CssSelector(".price-slider"));
-      Actions builder = new Actions(driver);
-      builder.MoveToElement(element).Perform();
-    }
-    {
-      var element = driver.FindElement(By.CssSelector(".price-slider"));
-      Actions builder = new Actions(driver);
-      builder.MoveToElement(element).Release().Perform();
-    }
-    driver.FindElement(By.CssSelector(".price-slider")).SendKeys("24000000");
-    driver.FindElement(By.CssSelector(".price-slider")).Click();
-    {
-      var element = driver.FindElement(By.CssSelector(".price-slider"));
-      Actions builder = new Actions(driver);
-      builder.MoveToElement(element).ClickAndHold().Perform();
-    }
-    {
-      var element = driver.FindElement(By.CssSelector(".price-slider"));
-      Actions builder = new Actions(driver);
-      builder.MoveToElement(element).Perform();
-    }
-    {
-      var element = driver.FindElement(By.CssSelector(".price-slider"));
-      Actions builder = new Actions(driver);
-      builder.MoveToElement(element).Release().Perform();
-    }
-    driver.FindElement(By.CssSelector(".price-slider")).SendKeys("32000000");
-    driver.FindElement(By.CssSelector(".price-slider")).Click();
-    {
-      var element = driver.FindElement(By.CssSelector(".price-slider"));
-      Actions builder = new Actions(driver);
-      builder.MoveToElement(element).ClickAndHold().Perform();
-    }
-    {
-      var element = driver.FindElement(By.CssSelector(".price-slider"));
-      Actions builder = new Actions(driver);
-      builder.MoveToElement(element).Perform();
-    }
-    {
-      var element = driver.FindElement(By.CssSelector(".price-slider"));
-      Actions builder = new Actions(driver);
-      builder.MoveToElement(element).Release().Perform();
-    }
-    driver.FindElement(By.CssSelector(".price-slider")).SendKeys("37000000");
-    driver.FindElement(By.CssSelector(".price-slider")).Click();
-    {
-      var element = driver.FindElement(By.CssSelector(".price-slider"));
-      Actions builder = new Actions(driver);
-      builder.MoveToElement(element).ClickAndHold().Perform();
-    }
-    {
-      var element = driver.FindElement(By.CssSelector(".price-slider"));
-      Actions builder = new Actions(driver);
-      builder.MoveToElement(element).Perform();
-    }
-    {
-      var element = driver.FindElement(By.CssSelector(".price-slider"));
-      Actions builder = new Actions(driver);
-      builder.MoveToElement(element).Release().Perform();
-    }
-    driver.FindElement(By.CssSelector(".price-slider")).SendKeys("21000000");
-    driver.FindElement(By.CssSelector(".price-slider")).Click();
-    driver.FindElement(By.CssSelector(".price-slider")).SendKeys("50000000");
-    driver.FindElement(By.CssSelector(".pageMain")).Click();
-  }
 }

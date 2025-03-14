@@ -12,64 +12,83 @@ using OpenQA.Selenium.Support.UI;
 using OpenQA.Selenium.Interactions;
 using NUnit.Framework;
 [TestFixture]
-public class DM004Test {
-  private IWebDriver driver;
-  public IDictionary<string, object> vars {get; private set;}
-  private IJavaScriptExecutor js;
-  [SetUp]
-  public void SetUp() {
-    driver = new ChromeDriver();
-    js = (IJavaScriptExecutor)driver;
-    vars = new Dictionary<string, object>();
-  }
-  [TearDown]
-  protected void TearDown() {
-    driver.Quit();
-    driver.Dispose();
+public class DM004Test
+{
+    private IWebDriver driver;
+    public IDictionary<string, object> vars { get; private set; }
+    private IJavaScriptExecutor js;
+    [SetUp]
+    public void SetUp()
+    {
+        driver = new ChromeDriver();
+        js = (IJavaScriptExecutor)driver;
+        vars = new Dictionary<string, object>();
+    }
+    [TearDown]
+    protected void TearDown()
+    {
+        driver.Quit();
+        driver.Dispose();
 
     }
     [Test]
-  public void dM004() {
-    driver.Navigate().GoToUrl("http://localhost:5173/user-home");
-    driver.Manage().Window.Size = new System.Drawing.Size(1552, 832);
-    driver.FindElement(By.CssSelector(".product-list:nth-child(2) .product:nth-child(2) .product-image")).Click();
-    js.ExecuteScript("window.scrollTo(0,0)");
+    public void dM004()
     {
-      var element = driver.FindElement(By.CssSelector(".price-slider"));
-      Actions builder = new Actions(driver);
-      builder.MoveToElement(element).ClickAndHold().Perform();
+        driver.Navigate().GoToUrl("http://localhost:5173/user-home");
+        driver.Manage().Window.Maximize();
+        driver.FindElement(By.CssSelector(".product-list:nth-child(2) .product:nth-child(2) .product-image")).Click();
+        Thread.Sleep(3000);
+
+        js.ExecuteScript("window.scrollTo(0,0)");
+        {
+            var element = driver.FindElement(By.CssSelector(".price-slider"));
+            Actions builder = new Actions(driver);
+            builder.MoveToElement(element).ClickAndHold().Perform();
+        }
+        {
+            var element = driver.FindElement(By.CssSelector(".price-slider"));
+            Actions builder = new Actions(driver);
+            builder.MoveToElement(element).Perform();
+        }
+        {
+            var element = driver.FindElement(By.CssSelector(".price-slider"));
+            Actions builder = new Actions(driver);
+            builder.MoveToElement(element).Release().Perform();
+        }
+        driver.FindElement(By.CssSelector(".price-slider")).SendKeys("3000000");
+        driver.FindElement(By.CssSelector(".price-slider")).Click();
+        Thread.Sleep(3000);
+
+        driver.FindElement(By.CssSelector(".filter-section:nth-child(3) .filter-btn:nth-child(3)")).Click();
+        Thread.Sleep(2000);
+
+        driver.FindElement(By.CssSelector(".search-btn")).Click();
+        Thread.Sleep(2000);
+        driver.FindElement(By.CssSelector(".search-btn")).Click();
+        Thread.Sleep(2000);
+        driver.FindElement(By.CssSelector(".filter-section:nth-child(3) .filter-btn:nth-child(1)")).Click();
+        Thread.Sleep(2000);
+        driver.FindElement(By.CssSelector(".search-btn")).Click();
+        Thread.Sleep(2000);
+        {
+            var element = driver.FindElement(By.CssSelector(".search-btn"));
+            Actions builder = new Actions(driver);
+            builder.MoveToElement(element).Perform();
+        }
+        {
+            var element = driver.FindElement(By.TagName("body"));
+            Actions builder = new Actions(driver);
+            builder.MoveToElement(element, 0, 0).Perform();
+        }
+        driver.FindElement(By.CssSelector(".filter-section:nth-child(3) .filter-btn:nth-child(2)")).Click();
+        Thread.Sleep(2000);
+        driver.FindElement(By.CssSelector(".search-btn")).Click();
+        Thread.Sleep(2000);
+        driver.FindElement(By.CssSelector(".filter-section:nth-child(3) .filter-btn:nth-child(1)")).Click();
+        Thread.Sleep(2000);
+        driver.FindElement(By.CssSelector(".search-btn")).Click();
+        Thread.Sleep(2000);
+        driver.FindElement(By.CssSelector(".search-btn")).Click();
+        Thread.Sleep(2000);
     }
-    {
-      var element = driver.FindElement(By.CssSelector(".price-slider"));
-      Actions builder = new Actions(driver);
-      builder.MoveToElement(element).Perform();
-    }
-    {
-      var element = driver.FindElement(By.CssSelector(".price-slider"));
-      Actions builder = new Actions(driver);
-      builder.MoveToElement(element).Release().Perform();
-    }
-    driver.FindElement(By.CssSelector(".price-slider")).SendKeys("3000000");
-    driver.FindElement(By.CssSelector(".price-slider")).Click();
-    driver.FindElement(By.CssSelector(".filter-section:nth-child(3) .filter-btn:nth-child(3)")).Click();
-    driver.FindElement(By.CssSelector(".search-btn")).Click();
-    driver.FindElement(By.CssSelector(".search-btn")).Click();
-    driver.FindElement(By.CssSelector(".filter-section:nth-child(3) .filter-btn:nth-child(1)")).Click();
-    driver.FindElement(By.CssSelector(".search-btn")).Click();
-    {
-      var element = driver.FindElement(By.CssSelector(".search-btn"));
-      Actions builder = new Actions(driver);
-      builder.MoveToElement(element).Perform();
-    }
-    {
-      var element = driver.FindElement(By.tagName("body"));
-      Actions builder = new Actions(driver);
-      builder.MoveToElement(element, 0, 0).Perform();
-    }
-    driver.FindElement(By.CssSelector(".filter-section:nth-child(3) .filter-btn:nth-child(2)")).Click();
-    driver.FindElement(By.CssSelector(".search-btn")).Click();
-    driver.FindElement(By.CssSelector(".filter-section:nth-child(3) .filter-btn:nth-child(1)")).Click();
-    driver.FindElement(By.CssSelector(".search-btn")).Click();
-    driver.FindElement(By.CssSelector(".search-btn")).Click();
-  }
 }
