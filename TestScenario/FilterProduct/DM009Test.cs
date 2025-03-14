@@ -25,7 +25,8 @@ public class DM009Test {
   [TearDown]
   protected void TearDown() {
     driver.Quit();
-  }
+        driver.Dispose();
+    }
   [Test]
   public void dM009() {
     driver.Navigate().GoToUrl("http://localhost:5173/user-home");

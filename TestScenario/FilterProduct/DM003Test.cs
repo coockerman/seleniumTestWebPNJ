@@ -12,31 +12,37 @@ using OpenQA.Selenium.Support.UI;
 using OpenQA.Selenium.Interactions;
 using NUnit.Framework;
 [TestFixture]
-public class DM003Test {
-  private IWebDriver driver;
-  public IDictionary<string, object> vars {get; private set;}
-  private IJavaScriptExecutor js;
-  [SetUp]
-  public void SetUp() {
-    driver = new ChromeDriver();
-    js = (IJavaScriptExecutor)driver;
-    vars = new Dictionary<string, object>();
-  }
-  [TearDown]
-  protected void TearDown() {
-    driver.Quit();
-  }
-  [Test]
-  public void dM003() {
-    driver.Navigate().GoToUrl("http://localhost:5173/user-home");
-    driver.Manage().Window.Size = new System.Drawing.Size(1552, 832);
-    driver.FindElement(By.CssSelector(".product-list:nth-child(2) .product:nth-child(1) .product-image")).Click();
-    js.ExecuteScript("window.scrollTo(0,0)");
-    driver.FindElement(By.CssSelector(".filter-section:nth-child(3) .filter-btn:nth-child(1)")).Click();
-    driver.FindElement(By.CssSelector(".search-btn")).Click();
-    driver.FindElement(By.CssSelector(".filter-section:nth-child(3) .filter-btn:nth-child(2)")).Click();
-    driver.FindElement(By.CssSelector(".search-btn")).Click();
-    driver.FindElement(By.CssSelector(".filter-section:nth-child(3) .filter-btn:nth-child(3)")).Click();
-    driver.FindElement(By.CssSelector(".search-btn")).Click();
-  }
+public class DM003Test
+{
+    private IWebDriver driver;
+    public IDictionary<string, object> vars { get; private set; }
+    private IJavaScriptExecutor js;
+    [SetUp]
+    public void SetUp()
+    {
+        driver = new ChromeDriver();
+        js = (IJavaScriptExecutor)driver;
+        vars = new Dictionary<string, object>();
+    }
+    [TearDown]
+    protected void TearDown()
+    {
+        driver.Quit();
+        driver.Dispose();
+
+    }
+    [Test]
+    public void dM003()
+    {
+        driver.Navigate().GoToUrl("http://localhost:5173/user-home");
+        driver.Manage().Window.Size = new System.Drawing.Size(1552, 832);
+        driver.FindElement(By.CssSelector(".product-list:nth-child(2) .product:nth-child(1) .product-image")).Click();
+        js.ExecuteScript("window.scrollTo(0,0)");
+        driver.FindElement(By.CssSelector(".filter-section:nth-child(3) .filter-btn:nth-child(1)")).Click();
+        driver.FindElement(By.CssSelector(".search-btn")).Click();
+        driver.FindElement(By.CssSelector(".filter-section:nth-child(3) .filter-btn:nth-child(2)")).Click();
+        driver.FindElement(By.CssSelector(".search-btn")).Click();
+        driver.FindElement(By.CssSelector(".filter-section:nth-child(3) .filter-btn:nth-child(3)")).Click();
+        driver.FindElement(By.CssSelector(".search-btn")).Click();
+    }
 }

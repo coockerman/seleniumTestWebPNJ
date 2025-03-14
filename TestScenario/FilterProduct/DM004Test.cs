@@ -25,8 +25,10 @@ public class DM004Test {
   [TearDown]
   protected void TearDown() {
     driver.Quit();
-  }
-  [Test]
+    driver.Dispose();
+
+    }
+    [Test]
   public void dM004() {
     driver.Navigate().GoToUrl("http://localhost:5173/user-home");
     driver.Manage().Window.Size = new System.Drawing.Size(1552, 832);
