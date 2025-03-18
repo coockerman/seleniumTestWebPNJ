@@ -30,10 +30,16 @@ public class SP11Test {
   [Test]
   public void sP11() {
     driver.Navigate().GoToUrl("http://localhost:5173/user-home");
-    driver.Manage().Window.Size = new System.Drawing.Size(1552, 840);
-    driver.FindElement(By.LinkText("TRANG SỨC")).Click();
-    driver.FindElement(By.CssSelector(".product-card:nth-child(2) .product-image")).Click();
-    driver.FindElement(By.CssSelector(".favorite-btn > span")).Click();
-    driver.FindElement(By.LinkText("YÊU THÍCH")).Click();
-  }
+        Thread.Sleep(6000);
+        driver.Manage().Window.Size = new System.Drawing.Size(1552, 840);
+        Thread.Sleep(6000);
+        driver.FindElement(By.LinkText("TRANG SỨC")).Click();
+        Thread.Sleep(6000);
+        driver.FindElement(By.CssSelector(".product-card:nth-child(2) .product-image")).Click();
+        Thread.Sleep(6000);
+        driver.FindElement(By.CssSelector(".favorite-btn > span")).Click();
+        Thread.Sleep(6000);
+        driver.FindElement(By.LinkText("YÊU THÍCH")).Click();
+        Thread.Sleep(6000);
+    }
 }

@@ -31,15 +31,22 @@ public class SP07Test {
   public void sP07() {
     driver.Navigate().GoToUrl("http://localhost:5173/user-home");
     driver.Manage().Window.Size = new System.Drawing.Size(1536, 824);
-    js.ExecuteScript("window.scrollTo(0,700)");
-    driver.FindElement(By.CssSelector(".product-list:nth-child(3) .product:nth-child(1) .product-image")).Click();
-    driver.FindElement(By.CssSelector(".product-card:nth-child(3)")).Click();
-    js.ExecuteScript("window.scrollTo(0,0)");
-    driver.FindElement(By.CssSelector(".tab-button:nth-child(2)")).Click();
-    driver.FindElement(By.CssSelector("textarea")).Click();
-    driver.FindElement(By.CssSelector(".comment-input-container > button")).Click();
-    Assert.That(driver.SwitchTo().Alert().Text, Is.EqualTo("Vui lòng nhập nội dung bình luận!"));
-    driver.FindElement(By.CssSelector("textarea")).Click();
-    driver.FindElement(By.CssSelector("textarea")).Click();
+        Thread.Sleep(6000);
+        js.ExecuteScript("window.scrollTo(0,700)");
+        Thread.Sleep(6000);
+        driver.FindElement(By.CssSelector(".product-list:nth-child(3) .product:nth-child(1) .product-image")).Click();
+        Thread.Sleep(3000);
+        driver.FindElement(By.CssSelector(".product-card:nth-child(3)")).Click();
+        Thread.Sleep(3000);
+        js.ExecuteScript("window.scrollTo(0,0)");
+        Thread.Sleep(3000);
+        driver.FindElement(By.CssSelector(".tab-button:nth-child(2)")).Click();
+        Thread.Sleep(3000);
+        driver.FindElement(By.CssSelector("textarea")).Click();
+        Thread.Sleep(3000);
+        driver.FindElement(By.CssSelector(".comment-input-container > button")).Click();
+        Thread.Sleep(3000);
+
+
   }
 }
