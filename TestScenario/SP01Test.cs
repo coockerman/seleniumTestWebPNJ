@@ -35,6 +35,7 @@ public class SP001Test
     {
         driver.Navigate().GoToUrl("http://localhost:5173/user-home/productDetail/id?id=VL10K1");
         driver.Manage().Window.Size = new System.Drawing.Size(1536, 824);
+        Thread.Sleep(3000);
         driver.FindElement(By.CssSelector(".thumbnail:nth-child(3)")).Click();
         Thread.Sleep(3000);
         driver.FindElement(By.CssSelector(".thumbnail:nth-child(4)")).Click();

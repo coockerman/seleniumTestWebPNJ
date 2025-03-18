@@ -12,7 +12,7 @@ using OpenQA.Selenium.Support.UI;
 using OpenQA.Selenium.Interactions;
 using NUnit.Framework;
 [TestFixture]
-public class SP09Test {
+public class SP08Test {
   private IWebDriver driver;
   public IDictionary<string, object> vars {get; private set;}
   private IJavaScriptExecutor js;
@@ -28,17 +28,24 @@ public class SP09Test {
         driver.Dispose();
     }
   [Test]
-  public void sP09() {
-    driver.Navigate().GoToUrl("http://localhost:5173/user-home");
-    driver.Manage().Window.Size = new System.Drawing.Size(1552, 840);
-    driver.FindElement(By.CssSelector(".product-list:nth-child(2) .product:nth-child(1) .product-image")).Click();
-    driver.FindElement(By.CssSelector(".product-card:nth-child(6) .product-image")).Click();
-    js.ExecuteScript("window.scrollTo(0,0)");
-    driver.FindElement(By.CssSelector(".tab-button:nth-child(2)")).Click();
-    driver.FindElement(By.CssSelector("textarea")).Click();
-    driver.FindElement(By.CssSelector("textarea")).SendKeys("CÒN MÀU KHÁC KHÔNG");
-    driver.FindElement(By.CssSelector(".comment-input-container > button")).Click();
-    Assert.That(driver.SwitchTo().Alert().Text, Is.EqualTo("Bình luận đã được gửi!"));
-    driver.FindElement(By.CssSelector(".comment-time")).Click();
-  }
+  public void sP08() {
+    driver.Navigate().GoToUrl("http://localhost:5173/user-home/productDetail/id?id=N14K1");
+        Thread.Sleep(6000);
+        driver.Manage().Window.Size = new System.Drawing.Size(1536, 824);
+        Thread.Sleep(6000);
+        driver.FindElement(By.CssSelector(".tab-button:nth-child(2)")).Click();
+        Thread.Sleep(6000);
+        js.ExecuteScript("window.scrollTo(0,300)");
+        Thread.Sleep(6000);
+        driver.FindElement(By.CssSelector("textarea")).Click();
+        Thread.Sleep(6000);
+        driver.FindElement(By.CssSelector("textarea")).SendKeys("cÒN MÀU KHÁC KHÔNG");
+        Thread.Sleep(6000);
+        driver.FindElement(By.CssSelector(".comment-input-container > button")).Click();
+        Thread.Sleep(6000);
+        Assert.That(driver.SwitchTo().Alert().Text, Is.EqualTo("Bình luận đã được gửi!"));
+        Thread.Sleep(6000);
+        js.ExecuteScript("window.scrollTo(0,310.3999938964844)");
+        Thread.Sleep(6000);
+    }
 }

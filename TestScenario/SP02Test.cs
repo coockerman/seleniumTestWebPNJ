@@ -31,16 +31,17 @@ public class SP002Test {
   public void sP002() {
     driver.Navigate().GoToUrl("http://localhost:5173/user-home/productDetail/id?id=VL10K1");
     driver.Manage().Window.Size = new System.Drawing.Size(1536, 824);
-    driver.FindElement(By.CssSelector(".thumbnail:nth-child(3)")).Click();
-        Thread.Sleep(7000);
-    driver.FindElement(By.CssSelector(".thumbnail:nth-child(4)")).Click();
-        Thread.Sleep(7000);
-        driver.FindElement(By.CssSelector(".thumbnail:nth-child(5)")).Click();
-    driver.FindElement(By.CssSelector(".thumbnail:nth-child(4)")).Click();
         Thread.Sleep(7000);
         driver.FindElement(By.CssSelector(".thumbnail:nth-child(3)")).Click();
+        Thread.Sleep(3000);
+    driver.FindElement(By.CssSelector(".thumbnail:nth-child(4)")).Click();
+        Thread.Sleep(3000);
+        driver.FindElement(By.CssSelector(".thumbnail:nth-child(5)")).Click();
+    driver.FindElement(By.CssSelector(".thumbnail:nth-child(4)")).Click();
+        Thread.Sleep(3000);
+        driver.FindElement(By.CssSelector(".thumbnail:nth-child(3)")).Click();
     driver.FindElement(By.CssSelector(".thumbnail:nth-child(2)")).Click();
-        Thread.Sleep(7000);
+        Thread.Sleep(3000);
         driver.FindElement(By.CssSelector(".thumbnail:nth-child(5)")).Click();
 
   }

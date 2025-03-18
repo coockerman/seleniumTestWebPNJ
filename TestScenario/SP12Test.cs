@@ -30,10 +30,15 @@ public class SP12Test {
   [Test]
   public void sP12() {
     driver.Navigate().GoToUrl("http://localhost:5173/user-home");
-    driver.Manage().Window.Size = new System.Drawing.Size(1536, 824);
-    driver.FindElement(By.CssSelector(".promotion-card:nth-child(2) .cta-button")).Click();
-    js.ExecuteScript("window.scrollTo(0,0)");
-    driver.FindElement(By.CssSelector(".product-card:nth-child(1) .product-image")).Click();
-    js.ExecuteScript("window.scrollTo(0,0)");
+        Thread.Sleep(6000);
+        driver.Manage().Window.Size = new System.Drawing.Size(1536, 824);
+        Thread.Sleep(6000);
+        driver.FindElement(By.CssSelector(".promotion-card:nth-child(2) .cta-button")).Click();
+        Thread.Sleep(6000);
+        js.ExecuteScript("window.scrollTo(0,0)");
+        Thread.Sleep(6000);
+        driver.FindElement(By.CssSelector(".product-card:nth-child(1) .product-image")).Click();
+        Thread.Sleep(6000);
+        js.ExecuteScript("window.scrollTo(0,0)");
   }
 }

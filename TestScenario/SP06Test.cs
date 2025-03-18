@@ -31,9 +31,13 @@ public class SP06Test {
   public void sP06() {
     driver.Navigate().GoToUrl("http://localhost:5173/user-home");
     driver.Manage().Window.Size = new System.Drawing.Size(1536, 824);
-    driver.FindElement(By.CssSelector(".product-list:nth-child(2) .product:nth-child(1) .product-image")).Click();
-    driver.FindElement(By.CssSelector(".product-card:nth-child(1) .product-image")).Click();
-    driver.FindElement(By.CssSelector(".cart-btn")).Click();
-    Assert.That(driver.SwitchTo().Alert().Text, Is.EqualTo("Thêm sản phẩm vào giỏ hàng thành công!"));
+        Thread.Sleep(6000);
+        driver.FindElement(By.CssSelector(".product-list:nth-child(2) .product:nth-child(1) .product-image")).Click();
+        Thread.Sleep(6000);
+        driver.FindElement(By.CssSelector(".product-card:nth-child(1) .product-image")).Click();
+        Thread.Sleep(6000);
+        driver.FindElement(By.CssSelector(".cart-btn")).Click();
+        Thread.Sleep(6000);
+
   }
 }

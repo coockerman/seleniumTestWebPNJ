@@ -30,12 +30,26 @@ public class SP10Test {
   [Test]
   public void sP10() {
     driver.Navigate().GoToUrl("http://localhost:5173/user-home");
-    driver.Manage().Window.Size = new System.Drawing.Size(1536, 824);
-    driver.FindElement(By.CssSelector(".product-list:nth-child(2) .product:nth-child(1) .product-image")).Click();
-    js.ExecuteScript("window.scrollTo(0,0)");
+        Thread.Sleep(6000);
+
+        driver.Manage().Window.Size = new System.Drawing.Size(1536, 824);
+        Thread.Sleep(6000);
+
+        driver.FindElement(By.CssSelector(".product-list:nth-child(2) .product:nth-child(1) .product-image")).Click();
+        Thread.Sleep(6000);
+
+        js.ExecuteScript("window.scrollTo(0,0)");
     driver.FindElement(By.CssSelector(".product-card:nth-child(6) .product-image")).Click();
-    js.ExecuteScript("window.scrollTo(0,0)");
-    driver.FindElement(By.CssSelector(".favorited")).Click();
-    driver.FindElement(By.CssSelector(".favorite-btn > span")).Click();
-  }
+        Thread.Sleep(6000);
+
+        js.ExecuteScript("window.scrollTo(0,0)");
+        Thread.Sleep(6000);
+
+        driver.FindElement(By.CssSelector(".favorited")).Click();
+        Thread.Sleep(6000);
+
+        driver.FindElement(By.CssSelector(".favorite-btn > span")).Click();
+        Thread.Sleep(6000);
+
+    }
 }
