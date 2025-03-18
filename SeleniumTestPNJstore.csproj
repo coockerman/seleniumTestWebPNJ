@@ -24,4 +24,8 @@
     <Using Include="NUnit.Framework" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="TestScenario\SearchProduct\" />
+  </ItemGroup>
+
 </Project>
