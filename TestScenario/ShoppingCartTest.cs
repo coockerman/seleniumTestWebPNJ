@@ -23,6 +23,21 @@ namespace SeleniumTestPNJstore.TestScenario
 
 
         [Test] //Kiem tra chuc nang them san pham vao gio
+        public void GH_04()
+        {
+            UserHomePage userHomePage = new UserHomePage(driverSetup);
+            userHomePage.GoToHomePage();
+            userHomePage.NavigateToLoginPage();
+
+            LoginPage login = new LoginPage(driverSetup);
+            login.Login(User.UserName, User.Password);
+
+            UserHomePage Add = new UserHomePage(driverSetup);
+            Add.NavigateToCategory();
+            Add.NavigateToProduct();
+
+        }
+        [Test] //Kiem tra chuc nang them so luong
         public void GH_01()
         {
             UserHomePage userHomePage = new UserHomePage(driverSetup);
@@ -35,10 +50,38 @@ namespace SeleniumTestPNJstore.TestScenario
             userHomePage.NavigateToShoppingCartPage();
 
             ShoppingCartPage shoppingCartPage = new ShoppingCartPage(driverSetup);
-            shoppingCartPage.ClickAddCartButton();
+            shoppingCartPage.ClickAddQuantity();
         }
+        [Test] //Kiem tra chuc nang giam so luong san pham
+        public void GH_02()
+        {
+            UserHomePage userHomePage = new UserHomePage(driverSetup);
+            userHomePage.GoToHomePage();
+            userHomePage.NavigateToLoginPage();
 
+            LoginPage login = new LoginPage(driverSetup);
+            login.Login(User.UserName, User.Password);
 
+            userHomePage.NavigateToShoppingCartPage();
+
+            ShoppingCartPage shoppingCartPage = new ShoppingCartPage(driverSetup);
+            shoppingCartPage.ClickQuantity0();
+        }
+        [Test] //Kiem tra chuc nang xoa sản phẩm
+        public void GH_03()
+        {
+            UserHomePage userHomePage = new UserHomePage(driverSetup);
+            userHomePage.GoToHomePage();
+            userHomePage.NavigateToLoginPage();
+
+            LoginPage login = new LoginPage(driverSetup);
+            login.Login(User.UserName, User.Password);
+
+            userHomePage.NavigateToShoppingCartPage();
+
+            ShoppingCartPage shoppingCartPage = new ShoppingCartPage(driverSetup);
+            shoppingCartPage.DeleteProduct();
+        }
 
         [TearDown]
         public void CleanUp()
