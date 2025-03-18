@@ -17,6 +17,11 @@ namespace SeleniumTestPNJstore.TestPage
         private By buttonNavigateLoginPath = By.XPath("//*[@id=\"app\"]/div/div/nav/div[3]/div[2]/div/button");
         private By buttonNavigateRegisterPath = By.XPath("//*[@id=\"app\"]/div/div/div/p[2]/a");
         private By buttonNavigateShoppingCartPath = By.XPath("//*[@id=\"app\"]/div/div/nav/div[3]/div[1]/a");
+        private By buttonNavigateCategoryProduct = By.XPath("//*[@id=\"app\"]/div/div/div[1]/div/div[2]/div/div[3]/a");
+        private By buttonNavigateProduct = By.XPath("//*[@id=\"app\"]/div/div/div[1]/div/div/div[2]/div/div[2]/div[1]");
+        private By buttonNavigateAddProduct = By.XPath("//*[@id=\"app\"]/div/div/div[1]/div/div[1]/div[3]/div[4]/div");
+        
+
         public UserHomePage(IWebDriver driver)
         {
             browsDrive = driver;
@@ -73,5 +78,33 @@ namespace SeleniumTestPNJstore.TestPage
             NavigateToLoginPage();
             NavigateToRegisterByChangeButton();
         }
+        void ClickCategory()
+        {
+            IWebElement navigateCategory= browsDrive.FindElement(buttonNavigateCategoryProduct);
+            navigateCategory.Click();
+        }
+
+
+        public void NavigateToCategory()
+        {
+            Thread.Sleep(1000); //Delay mot chut de trang web load
+
+            ClickCategory();
+        }
+
+        public void NavigateToProduct()
+        {
+            Thread.Sleep(1000); //Delay mot chut de trang web load
+
+            ClickCategory();
+            IWebElement navigateProduct = browsDrive.FindElement(buttonNavigateProduct);
+            navigateProduct.Click();
+            Thread.Sleep(6000);
+            IWebElement navigateAddProduct = browsDrive.FindElement(buttonNavigateAddProduct);
+            navigateAddProduct.Click();
+            Thread.Sleep(9000);
+
+        }
+
     }
 }
