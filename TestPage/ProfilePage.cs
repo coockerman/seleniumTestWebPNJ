@@ -37,6 +37,7 @@ namespace SeleniumTestPNJstore.TestPage
 
         public bool IsProfilePage()
         {
+            Thread.Sleep(2000);
             return browsDrive.Url.Contains(urlFrofilePage);
         }
 

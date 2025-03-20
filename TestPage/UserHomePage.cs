@@ -20,7 +20,7 @@ namespace SeleniumTestPNJstore.TestPage
         private By buttonNavigateCategoryProduct = By.XPath("//*[@id=\"app\"]/div/div/div[1]/div/div[2]/div/div[3]/a");
         private By buttonNavigateProduct = By.XPath("//*[@id=\"app\"]/div/div/div[1]/div/div/div[2]/div/div[2]/div[1]");
         private By buttonNavigateAddProduct = By.XPath("//*[@id=\"app\"]/div/div/div[1]/div/div[1]/div[3]/div[4]/div");
-        
+        private By buttonNavigateProfile = By.XPath("//*[@id=\"app\"]/div/div/nav/div[3]/div[2]/div/button[1]");
 
         public UserHomePage(IWebDriver driver)
         {
@@ -53,7 +53,11 @@ namespace SeleniumTestPNJstore.TestPage
             IWebElement navigateShoppingCartButton = browsDrive.FindElement(buttonNavigateShoppingCartPath);
             navigateShoppingCartButton.Click();
         }
-
+        void ClickNavigateProfileButton()
+        {
+            IWebElement navigateProfileButton = browsDrive.FindElement(buttonNavigateProfile);
+            navigateProfileButton.Click();
+        }
 
         public void NavigateToShoppingCartPage()
         {
@@ -66,6 +70,12 @@ namespace SeleniumTestPNJstore.TestPage
             Thread.Sleep(500);
             HoverToUserIcon();
             ClickNavigateLoginButton();
+        }
+        public void NavigateToProfilePage()
+        {
+            Thread.Sleep(500);
+            HoverToUserIcon();
+            ClickNavigateProfileButton();
         }
         public void NavigateToRegisterByChangeButton()
         {

@@ -46,6 +46,24 @@ namespace SeleniumTestPNJstore.TestScenario
 
             Assert.IsTrue(isProfilePage, "Fail");
         }
+        [Test] //Hien thi thong tin user
+        public void PF_02()
+        {
+            UserHomePage userHomePage = new UserHomePage(driverSetup);
+            userHomePage.GoToHomePage();
+            userHomePage.NavigateToLoginPage();
+
+            LoginPage login = new LoginPage(driverSetup);
+            login.Login(User.UserNameHai, User.PasswordHai);
+            userHomePage.NavigateToProfilePage();
+
+
+            ProfilePage profilePage = new ProfilePage(driverSetup);
+            bool isProfilePage = profilePage.IsProfilePage();
+
+            Assert.IsTrue(isProfilePage, "Fail");
+        }
+        
 
         [Test] //Hien thi thong tin email va sdt
         public void PF_03()
@@ -64,6 +82,57 @@ namespace SeleniumTestPNJstore.TestScenario
             bool isCheckSdt = profilePage.IsCheckSdt("0213424234");
 
             Assert.IsTrue(isCheckEmail&&isCheckSdt, "Fail");
+        }
+        [Test] //Hien thi thong tin user
+        public void PF_04()
+        {
+            UserHomePage userHomePage = new UserHomePage(driverSetup);
+            userHomePage.GoToHomePage();
+            userHomePage.NavigateToLoginPage();
+
+            LoginPage login = new LoginPage(driverSetup);
+            login.Login(User.UserNameHai, User.PasswordHai);
+            userHomePage.NavigateToProfilePage();
+
+
+            ProfilePage profilePage = new ProfilePage(driverSetup);
+            bool isProfilePage = profilePage.IsProfilePage();
+
+            Assert.IsTrue(isProfilePage, "Fail");
+        }
+        [Test] //Hien thi thong tin user
+        public void PF_05()
+        {
+            UserHomePage userHomePage = new UserHomePage(driverSetup);
+            userHomePage.GoToHomePage();
+            userHomePage.NavigateToLoginPage();
+
+            LoginPage login = new LoginPage(driverSetup);
+            login.Login(User.UserNameHai, User.PasswordHai);
+            userHomePage.NavigateToProfilePage();
+
+
+            ProfilePage profilePage = new ProfilePage(driverSetup);
+            bool isProfilePage = profilePage.IsProfilePage();
+
+            Assert.IsTrue(isProfilePage, "Fail");
+        }
+        [Test] 
+        public void PF_06()
+        {
+            UserHomePage userHomePage = new UserHomePage(driverSetup);
+            userHomePage.GoToHomePage();
+            userHomePage.NavigateToLoginPage();
+
+            LoginPage login = new LoginPage(driverSetup);
+            login.Login(User.UserNameHai, User.PasswordHai);
+            userHomePage.NavigateToProfilePage();
+
+
+            ProfilePage profilePage = new ProfilePage(driverSetup);
+            bool isProfilePage = profilePage.IsProfilePage();
+
+            Assert.IsTrue(isProfilePage, "Fail");
         }
     }
 }
